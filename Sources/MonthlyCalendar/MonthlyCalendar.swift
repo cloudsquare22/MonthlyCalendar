@@ -5,12 +5,14 @@ struct MonthlyCalendar {
     var month = 0
     var dayCount = 0
     var days = [[Int]]()
+    let startSunday: Bool
     
-    init(day: Date) {
+    init(day: Date, startSunday: Bool = false) {
         days = [[Int]](repeating: [Int](repeating: 0, count: 7), count: 1)
         let dayDateComponents = Calendar.current.dateComponents(in: .current, from: day)
         self.year = dayDateComponents.year!
         self.month = dayDateComponents.month!
+        self.startSunday = startSunday
         var firstDateComponents = dayDateComponents
         firstDateComponents.day = 1
         firstDateComponents = Calendar.current.dateComponents(in: .current, from: Calendar.current.date(from: firstDateComponents)!)
@@ -20,7 +22,10 @@ struct MonthlyCalendar {
         countDateComponents.day = 0
         self.dayCount = Calendar.current.component(.day, from: Calendar.current.date(from: countDateComponents)!)
         let weekday = firstDateComponents.weekday!
-        var weekdayIndex = weekday - 1 == 0 ? 6 : weekday - 2
+        var weekdayIndex = weekday - 1
+        if startSunday == false {
+            weekdayIndex = weekday - 1 == 0 ? 6 : weekday - 2
+        }
         var weekIndex = 0
         for day in 1...self.dayCount {
             days[weekIndex][weekdayIndex] = day
