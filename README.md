@@ -35,6 +35,8 @@ Result Example
 ```
 
 Array : \[week]\[day of the week]  
+The value 0 is where there is no date  
+
 day of the week  
 Starting Monday : Index 0 is monday  
 Starting Sunday : Index 0 is sunday  
