@@ -1,13 +1,13 @@
 import Foundation
 
-public struct MonthlyCalendar {
+struct MonthlyCalendar {
     var year = 0
     var month = 0
     var dayCount = 0
     var days = [[Int]]()
     let startSunday: Bool
     
-    init(day: Date, startSunday: Bool = false) {
+    public init(day: Date, startSunday: Bool = false) {
         days = [[Int]](repeating: [Int](repeating: 0, count: 7), count: 1)
         let dayDateComponents = Calendar.current.dateComponents(in: .current, from: day)
         self.year = dayDateComponents.year!
