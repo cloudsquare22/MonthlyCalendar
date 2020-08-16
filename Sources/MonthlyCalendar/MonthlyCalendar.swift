@@ -1,11 +1,11 @@
 import Foundation
 
 public struct MonthlyCalendar {
-    var year = 0
-    var month = 0
-    var dayCount = 0
-    var days = [[Int]]()
-    let startSunday: Bool
+    public var year = 0
+    public var month = 0
+    public var dayCount = 0
+    public var days = [[Int]]()
+    public let startSunday: Bool
     
     public init(day: Date, startSunday: Bool = false) {
         days = [[Int]](repeating: [Int](repeating: 0, count: 7), count: 1)
