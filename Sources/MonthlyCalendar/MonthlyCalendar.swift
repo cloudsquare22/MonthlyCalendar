@@ -1,6 +1,6 @@
 import Foundation
 
-struct MonthlyCalendar {
+public struct MonthlyCalendar {
     var year = 0
     var month = 0
     var dayCount = 0
