@@ -38,4 +38,13 @@ public struct MonthlyCalendar {
             }
         }
     }
+    
+    public init(year: Int, month: Int, startSunday: Bool = false) {
+        self.year = year
+        self.month = month
+        self.startSunday = startSunday
+        var dayDateComponents = DateComponents()
+        dayDateComponents.year = year
+        dayDateComponents.month = month
+    }
 }
