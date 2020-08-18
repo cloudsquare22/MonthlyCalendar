@@ -4,11 +4,10 @@ public struct MonthlyCalendar {
     public var year = 0
     public var month = 0
     public var dayCount = 0
-    public var days = [[Int]]()
+    public var days = [[Int]](repeating: [Int](repeating: 0, count: 7), count: 1)
     public let startSunday: Bool
     
     public init(day: Date, startSunday: Bool = false) {
-        days = [[Int]](repeating: [Int](repeating: 0, count: 7), count: 1)
         let dayDateComponents = Calendar.current.dateComponents(in: .current, from: day)
         self.year = dayDateComponents.year!
         self.month = dayDateComponents.month!
